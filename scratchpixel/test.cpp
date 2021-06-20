@@ -42,3 +42,14 @@ TEST(VectorClass, TestDot) {
   ASSERT_EQ(a.dot(c), 2.f);
   ASSERT_EQ(dot(a, c), 2.f);
 }
+
+TEST(VectorClass, AddSubMul)
+{
+  Vec3 a(1, 2, 3);
+  Vec3 b(3, 2, 1);
+  ASSERT_EQ(a+b,Vec3(4,4,4));
+  ASSERT_EQ(a-b,Vec3(-2,0,2));
+  ASSERT_EQ(a*2,Vec3(2,4,6));
+  ASSERT_EQ(2*a,Vec3(2,4,6));
+}
+

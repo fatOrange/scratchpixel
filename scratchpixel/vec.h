@@ -38,6 +38,22 @@ class Vec {
     return Vec<T>(y * b.z - z * b.y, z * b.x - x * b.z,
                   x * b.y - y * b.x);
   }
+
+  Vec<T> operator+(const Vec<T> &b)
+  {
+    return Vec<T>(x+b.x,y+b.y,z+b.z);
+  }
+
+  Vec<T> operator-(const Vec<T> &b)
+  {
+    return Vec<T>(x-b.x,y-b.y,z-b.z);
+  }
+
+  Vec<T> operator*(const double &r)
+  {
+    return Vec<T>(r*x,r*y,r*z);
+  }
+  
 };
 
 typedef Vec<double> Vec3;
@@ -74,5 +90,15 @@ Vec<T> cross(const Vec<T> &a,const Vec<T> &b)
     a.y*b.z + b.y*a.z,
     a.z*b.x + b.z*a.x,
     a.x*b.y + b.x*a.y
+  );
+}
+
+template <typename T>
+Vec<T> operator*(const double &a,const Vec<T> &b)
+{
+  return Vec<T>(
+    a*b.x,
+    a*b.y,
+    a*b.z
   );
 }
