@@ -10,7 +10,7 @@ cc_binary(
 cc_test(
   name = "test",
   size = "small",
-  srcs = ["test.cpp","vec.h"],
+  srcs = ["test.cpp","vec.h","mat.h"],
   deps = ["@com_google_googletest//:gtest_main"],
 )
 

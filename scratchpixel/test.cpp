@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "vec.h"
+#include "mat.h"
 
 // gtest document : https://google.github.io/googletest/primer.html
 // Demonstrate some basic assertions.
@@ -52,4 +53,16 @@ TEST(VectorClass, AddSubMul)
   ASSERT_EQ(a*2,Vec3(2,4,6));
   ASSERT_EQ(2*a,Vec3(2,4,6));
 }
+
+TEST(MatrixClass, Mul)
+{
+  Mat44f a;
+  Mat44f b;
+  Mat44f c;
+  a[0][0] = 2;
+  b[0][0] = 2;
+  c[0][0] = 4;
+  ASSERT_EQ(a*b,c);
+}
+
 

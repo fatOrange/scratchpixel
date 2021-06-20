@@ -3,6 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceFolder}/scratchpixel",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/bazel-bin/external"
             ],
