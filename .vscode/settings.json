@@ -15,6 +15,7 @@
         "limits": "cpp",
         "utility": "cpp",
         "random": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "algorithm": "cpp"
     }
 }

@@ -7,7 +7,8 @@
             "args": [
                 "build",
                 "//scratchpixel:${fileBasenameNoExtension}",
-                "--compilation_mode=dbg"
+                "--compilation_mode=dbg",
+                "--cxxopt='-std=c++17'"
             ],
             "options": {
                 "cwd": "${fileDirname}"
