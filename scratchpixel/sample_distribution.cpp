@@ -1,3 +1,8 @@
+/****
+ * 该项目需要在wsl模式下打开
+ * 仅仅用命令行是不够的
+ * 需要进入wsl环境
+ ***/
 #include <random> 
 #include <cstdlib> 
 #include <cstdio> 
@@ -20,7 +25,11 @@ int main(int argc, char **argv)
  
     // creation population
     std::uniform_int_distribution<uint32_t> distr(1,MAX_FREQ); 
- 
+     float expectedValueMean = 0, varianceMean = 0;
+
+    int meanCount[MAX_NUM+1];
+    for(int i = 0;i<MAX_NUM;i++) meanCount[i] = 0;
+
     for (int i = 0; i <= MAX_NUM; ++i) { 
         population[i] = distr(rng); 
         popSize += population[i]; 
@@ -35,9 +44,6 @@ int main(int argc, char **argv)
      std::uniform_int_distribution<uint32_t> n_samples_distr(minSampples, maxSampples); 
     std::uniform_int_distribution<uint32_t> pick_item_distr(0, popSize - 1); 
  
-    float expectedValueMean = 0, varianceMean = 0;
-    int meanCount[MAX_NUM+1];
-    for(int i = 0;i<MAX_NUM;i++) meanCount[i] = 0;
     // now that we have some data and stats to work with sample it
     for (int i = 0; i < numSamples; ++i) { 
         int n = n_samples_distr(rng); // sample size 
@@ -58,15 +64,17 @@ int main(int argc, char **argv)
         sample_mean /= n; 
         sample_variance /= n; 
         sample_variance -= sample_mean * sample_mean; 
-        
+
         float c1[3] = { 1, 0, 0 }; 
         float c2[3] = { 0, 0, 1 }; 
         float t = (n - minSampples) / (float)(maxSampples - minSampples); 
         float r = c1[0] * (1 - t) + c2[0] * t; 
         float g = c1[1] * (1 - t) + c2[1] * t; 
         float b = c1[2] * (1 - t) + c2[2] * t; 
+        
         printf("sample mean: %f sample variance: %f col: %f %f %f;\n", sample_mean, sample_variance, r, g, b); 
+        meanCount[int(sample_mean)]++;
     } 
- 
+    for(int i = 0;i<MAX_NUM;i++)printf("%d %d\n", i, meanCount[i]) ;
     return 0; 
 } 
