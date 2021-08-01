@@ -19,3 +19,8 @@ cc_binary(
     srcs = ["tinyraytracer.cpp","geometry.h"],
     deps = ["@com_github_google_glog//:glog"],
 )
+
+cc_binary(
+    name = "sample_distribution",
+    srcs = ["sample_distribution.cpp"]
+)

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bazel-bin/scratchpixel/${fileBasenameNoExtension}",
-            "args": [],
+            "args": [2,20],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
